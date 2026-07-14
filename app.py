@@ -20,7 +20,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-ASSETS = Path(__file__).parent / "assets"
+BASE_DIR = Path(__file__).parent
 
 PRIMARY = "#7C3AED"
 ACCENT = "#06B6D4"
@@ -88,7 +88,7 @@ def tag(text):
     st.markdown(f'<span class="section-tag">{text}</span>', unsafe_allow_html=True)
 
 def img(name, caption=None, width=None):
-    path = ASSETS / name
+    path = BASE_DIR / name
     if path.exists():
         st.image(str(path), caption=caption, width=width, use_container_width=(width is None))
     else:
